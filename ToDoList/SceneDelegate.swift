@@ -1,9 +1,7 @@
 //
 //  SceneDelegate.swift
 //  ToDoList
-//
-//  Created by Denis Azarkov on 3/11/23.
-//
+//  Created by .b[u]mpagram  on 3/11/23.
 
 import UIKit
 
