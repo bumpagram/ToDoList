@@ -131,8 +131,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="216.33332824707031"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Fnl-1S-1Zh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="217"/>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Fnl-1S-1Zh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="216.33333333333334"/>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="aHW-JF-a5o" eventType="valueChanged" id="el1-Xn-vbE"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>

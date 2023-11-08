@@ -13,8 +13,6 @@ class ToDoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-        
-        
         if let savedTodos = ToDoModel.loadData() {
             arrayOfToDos = savedTodos
         } else {
@@ -25,8 +23,17 @@ class ToDoTableViewController: UITableViewController {
     }
 
     
-    @IBAction func unwindToTodolist(insegue: UIStoryboardSegue) {  // подключен вручную в сториборде, но xCode кружок не закрасил
-        // ?
+    @IBAction func unwindToTodolist(insegue: UIStoryboardSegue) {
+        // подключен вручную в сториборде, но xCode кружок не закрасил
+        guard insegue.identifier == "savingUnwind" else {return}
+        let sourceViewController = insegue.source as! DetailsTableViewController // не упадет ввиду guard
+        if let toDoModel = sourceViewController.toDoModel {
+            // “If a model object exists, add it to the array, then add a table cell that represents the new data.”
+            let insertIndexPath = IndexPath(row: arrayOfToDos.count, section: 0)
+            arrayOfToDos.append(toDoModel)
+            tableView.insertRows(at: [insertIndexPath], with: .automatic)
+        }
+
     }
     
     
