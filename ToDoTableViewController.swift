@@ -2,7 +2,6 @@
 //  ToDoList
 //  Created by .b[u]mpagram  on 3/11/23.
 
-
 import UIKit
 
 class ToDoTableViewController: UITableViewController {
@@ -33,7 +32,18 @@ class ToDoTableViewController: UITableViewController {
             arrayOfToDos.append(toDoModel)
             tableView.insertRows(at: [insertIndexPath], with: .automatic)
         }
-
+    }
+    
+    @IBSegueAction func editTodo(_ coder: NSCoder, sender: Any?) -> DetailsTableViewController? {
+        // здесь определяется источник кнопка/ячейка и в destination view controller пробрасываетсся в проперти нужный элемент массива
+        let detailsTVC = DetailsTableViewController(coder: coder)
+        guard let cell = sender as? UITableViewCell, let indexpath = tableView.indexPath(for: cell) else {
+            // if sender is the add button, return an empty controller
+            return detailsTVC
+        }
+        tableView.deselectRow(at: indexpath, animated: true)
+        detailsTVC?.toDoModel = arrayOfToDos[indexpath.row]
+        return detailsTVC
     }
     
     

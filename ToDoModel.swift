@@ -24,7 +24,7 @@ struct ToDoModel {
     
     static func useSamples() -> [ToDoModel] {
         let todo1 = ToDoModel(title: "Example task one", isComplete: false, expiredDate: Date(), notes: "some description")
-        let todo2 = ToDoModel(title: "Example task two", isComplete: false, expiredDate: Date(), notes: "some description")
+        let todo2 = ToDoModel(title: "Example task two", isComplete: true, expiredDate: Date(), notes: "some description")
         let todo3 = ToDoModel(title: "Example task three", isComplete: false, expiredDate: Date(), notes: "some description")
         return [todo1, todo2, todo3]
     }

@@ -23,9 +23,20 @@ class DetailsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentDueDate: Date
+        
+        if let toDoModel = toDoModel { // конфигурим экран, смотря детали это существующего элемента или добавление нового
+            navigationItem.title = "Task"
+            titleField.text = toDoModel.title
+            isCompleteButton.isSelected = toDoModel.isComplete
+            currentDueDate = toDoModel.expiredDate
+            notesField.text = toDoModel.notes
+        } else {
+            currentDueDate = Date().addingTimeInterval(86400) // в секундах. + 24 часа от текущего
+        }
+        datePicker.date = currentDueDate
+        updateDateLabel(input: currentDueDate)
         updateSaveButtonState()
-        datePicker.date = Date().addingTimeInterval(86400) // в секундах. + 24 часа от текущего
-        updateDateLabel(input: datePicker.date)
     }
     
     
@@ -98,7 +109,15 @@ class DetailsTableViewController: UITableViewController {
         let savingEstimate = datePicker.date
         let savingNotes = notesField.text
         
-        toDoModel = ToDoModel(title: savingTitle, isComplete: savingState, expiredDate: savingEstimate, notes: savingNotes)
+        if toDoModel != nil {
+            toDoModel?.title = savingTitle
+            toDoModel?.isComplete = savingState
+            toDoModel?.expiredDate = savingEstimate
+            toDoModel?.notes = savingNotes
+        } else {
+            toDoModel = ToDoModel(title: savingTitle, isComplete: savingState, expiredDate: savingEstimate, notes: savingNotes)
+        }
+        
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }

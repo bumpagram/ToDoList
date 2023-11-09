@@ -23,6 +23,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gpC-PB-XRf" kind="presentation" id="z3m-FN-IQ8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -33,7 +36,7 @@
                     <navigationItem key="navigationItem" title="My ToDoList" id="eIU-nJ-raO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="glF-xA-DsX">
                             <connections>
-                                <segue destination="gpC-PB-XRf" kind="presentation" id="zVV-1h-YZh"/>
+                                <segue destination="gpC-PB-XRf" kind="presentation" identifier="toDetails" id="zVV-1h-YZh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -216,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="aHW-JF-a5o" kind="relationship" relationship="rootViewController" id="WCt-L9-jQL"/>
+                        <segue destination="aHW-JF-a5o" kind="relationship" relationship="rootViewController" destinationCreationSelector="editTodo:sender:" id="WCt-L9-jQL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clE-nh-AFf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -240,6 +243,9 @@
             <point key="canvasLocation" x="-602" y="-21"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zVV-1h-YZh"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="circle" catalog="system" width="128" height="123"/>
