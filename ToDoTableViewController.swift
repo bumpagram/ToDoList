@@ -26,11 +26,19 @@ class ToDoTableViewController: UITableViewController {
         // подключен вручную в сториборде, но xCode кружок не закрасил
         guard insegue.identifier == "savingUnwind" else {return}
         let sourceViewController = insegue.source as! DetailsTableViewController // не упадет ввиду guard
+        
         if let toDoModel = sourceViewController.toDoModel {
-            // “If a model object exists, add it to the array, then add a table cell that represents the new data.”
-            let insertIndexPath = IndexPath(row: arrayOfToDos.count, section: 0)
-            arrayOfToDos.append(toDoModel)
-            tableView.insertRows(at: [insertIndexPath], with: .automatic)
+            if let existingTaskIndex = arrayOfToDos.firstIndex(of: toDoModel) {
+                // заменяет сохраненный элемент на обновленный, чтобы не было дублей
+                arrayOfToDos[existingTaskIndex] = toDoModel
+                tableView.reloadRows(at: [IndexPath(row: existingTaskIndex, section: 0)], with: .automatic)  // IP - инициализатор
+                
+            } else {
+                // “If a model object exists, add it to the array, then add a table cell that represents the new data.”
+                let insertIndexPath = IndexPath(row: arrayOfToDos.count, section: 0)
+                arrayOfToDos.append(toDoModel)
+                tableView.insertRows(at: [insertIndexPath], with: .automatic)
+            }
         }
     }
     

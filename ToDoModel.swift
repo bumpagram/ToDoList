@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct ToDoModel {
+struct ToDoModel : Equatable {
     let id = UUID() // “This is a system-provided type that is a universally unique value that can be used to identify types. Anytime you create one, you're theoretically guaranteed to get a different value, making it a reliable unique identifier.”
     
     var title: String
