@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -211,6 +212,41 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Share" id="dfR-uM-PWO">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" rowHeight="50" id="7zd-q4-L0z" userLabel="shareCell">
+                                        <rect key="frame" x="0.0" y="639.66665840148926" width="393" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7zd-q4-L0z" id="cYD-bE-3As">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUO-KM-UgI" userLabel="Sharrow">
+                                                    <rect key="frame" x="121.66666666666669" y="0.0" width="150" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="9NN-s8-Cqa"/>
+                                                        <constraint firstAttribute="height" constant="50" id="UfO-rG-zZY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="tintColor" systemColor="tintColor"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="shareButtonPressed:" destination="aHW-JF-a5o" eventType="touchUpInside" id="8kL-Q6-4Ln"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wUO-KM-UgI" firstAttribute="centerY" secondItem="cYD-bE-3As" secondAttribute="centerY" id="BKw-6z-5hA"/>
+                                                <constraint firstItem="wUO-KM-UgI" firstAttribute="centerX" secondItem="cYD-bE-3As" secondAttribute="centerX" id="Gvc-v0-8Kt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="aHW-JF-a5o" id="thL-BB-IBE"/>
@@ -235,6 +271,8 @@
                         <outlet property="isCompleteButton" destination="Nh7-HN-Wl8" id="fpP-El-6D9"/>
                         <outlet property="notesField" destination="l02-2N-WZs" id="KCg-3g-z9f"/>
                         <outlet property="saveButton" destination="5zu-NI-y0Z" id="JrB-7e-few"/>
+                        <outlet property="shareCell" destination="7zd-q4-L0z" id="wit-l6-qSy"/>
+                        <outlet property="sharrow" destination="wUO-KM-UgI" id="nYF-Ia-hb0"/>
                         <outlet property="titleField" destination="pTp-aw-3Mx" id="fS2-vE-q8L"/>
                     </connections>
                 </tableViewController>
@@ -282,11 +320,15 @@
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="circle" catalog="system" width="128" height="123"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

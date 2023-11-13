@@ -19,6 +19,8 @@ class DetailsTableViewController: UITableViewController {
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var notesField: UITextView!
     @IBOutlet var saveButton: UIBarButtonItem!
+    @IBOutlet var sharrow: UIButton!
+    @IBOutlet var shareCell: UITableViewCell!
     
     
     override func viewDidLoad() {
@@ -31,7 +33,13 @@ class DetailsTableViewController: UITableViewController {
             isCompleteButton.isSelected = toDoModel.isComplete
             currentDueDate = toDoModel.expiredDate
             notesField.text = toDoModel.notes
+            sharrow.isEnabled = true
+            sharrow.tintColor = .systemBlue
+            shareCell.isUserInteractionEnabled = true
         } else {
+            sharrow.isEnabled = false
+            sharrow.tintColor = .systemGray
+            shareCell.isUserInteractionEnabled = false
             currentDueDate = Date().addingTimeInterval(86400) // в секундах. + 24 часа от текущего
         }
         datePicker.date = currentDueDate
@@ -54,6 +62,18 @@ class DetailsTableViewController: UITableViewController {
     }
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         updateDateLabel(input: sender.date)
+    }
+    @IBAction func shareButtonPressed(_ sender: UIButton) {
+        print("flag: got sharrow")
+        
+        let savingTitle = titleField.text!
+        let savingState = "Completed: " + String(isCompleteButton.isSelected)   // bool iOS шарить не может видимо
+        let savingEstimate = "Expired date: " + datePicker.date.formatted()
+        let savingNotes = "Notes: " + notesField.text
+        
+        let activity = UIActivityViewController(activityItems: [savingTitle, savingState, savingEstimate, savingNotes], applicationActivities: nil)
+        activity.popoverPresentationController?.sourceView = sender
+        present(activity, animated: true, completion: nil) // непосредственно функция вывода на экран
     }
     
     
