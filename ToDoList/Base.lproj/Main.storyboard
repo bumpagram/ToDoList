@@ -41,6 +41,9 @@
                                             <state key="selected" image="checkmark.circle.fill" catalog="system">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                             </state>
+                                            <connections>
+                                                <action selector="completeButtonTapped:" destination="cJW-Df-deH" eventType="touchUpInside" id="JQY-cr-G60"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

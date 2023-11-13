@@ -4,7 +4,18 @@
 
 import UIKit
 
-class ToDoTableViewController: UITableViewController {
+class ToDoTableViewController: UITableViewController, ToDoCustomCellDelegate {
+    
+    func checkmarkTapped(source: ToDoCustomCell) {
+        if let indexpath = tableView.indexPath(for: source) {
+            print("flag checkmarkTapped income")
+            var element = arrayOfToDos[indexpath.row]
+            element.isComplete.toggle()
+            arrayOfToDos[indexpath.row] = element
+            tableView.reloadRows(at: [indexpath], with: .automatic)
+        }
+    }
+    
     
     var arrayOfToDos = [ToDoModel]()
     
@@ -65,7 +76,9 @@ class ToDoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // отображение кастомной ячейки
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! ToDoCustomCell
+        cell.delegate = self // принимателем событий станет сам ToDoTableViewController
         let element = arrayOfToDos[indexPath.row]
         cell.titleLabel.text = element.title
         cell.isCompleteButton.isSelected = element.isComplete
