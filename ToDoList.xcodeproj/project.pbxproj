@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A7BF3472B023865006C7348 /* ToDoCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7BF3462B023865006C7348 /* ToDoCustomCell.swift */; };
 		5AA12B882AF5320E0016446D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA12B872AF5320E0016446D /* AppDelegate.swift */; };
 		5AA12B8A2AF5320E0016446D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA12B892AF5320E0016446D /* SceneDelegate.swift */; };
 		5AA12B8F2AF5320E0016446D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AA12B8D2AF5320E0016446D /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A7BF3462B023865006C7348 /* ToDoCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCustomCell.swift; sourceTree = "<group>"; };
 		5AA12B842AF5320E0016446D /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA12B872AF5320E0016446D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AA12B892AF5320E0016446D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 		5AA12B7B2AF5320E0016446D = {
 			isa = PBXGroup;
 			children = (
+				5A7BF3462B023865006C7348 /* ToDoCustomCell.swift */,
 				5AAA23E42AF6A360009F7A9D /* DetailsTableViewController.swift */,
 				5AA12B9D2AF5483B0016446D /* ToDoTableViewController.swift */,
 				5AA12B9B2AF53C370016446D /* ToDoModel.swift */,
@@ -146,6 +149,7 @@
 			files = (
 				5AA12B882AF5320E0016446D /* AppDelegate.swift in Sources */,
 				5AAA23E52AF6A360009F7A9D /* DetailsTableViewController.swift in Sources */,
+				5A7BF3472B023865006C7348 /* ToDoCustomCell.swift in Sources */,
 				5AA12B9E2AF5483B0016446D /* ToDoTableViewController.swift in Sources */,
 				5AA12B8A2AF5320E0016446D /* SceneDelegate.swift in Sources */,
 				5AA12B9C2AF53C370016446D /* ToDoModel.swift in Sources */,

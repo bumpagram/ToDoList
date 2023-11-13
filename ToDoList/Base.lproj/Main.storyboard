@@ -16,14 +16,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="cJW-Df-deH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="cJW-Df-deH" customClass="ToDoCustomCell" customModule="ToDoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJW-Df-deH" id="ClS-Nj-yAx">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gde-qx-d3X">
+                                            <rect key="frame" x="44" y="11.666666666666666" width="329" height="20.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="260" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRw-hX-bem">
+                                            <rect key="frame" x="8" y="2" width="28" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="1pb-0Z-SlI"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="circle" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                            </state>
+                                            <state key="selected" image="checkmark.circle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Gde-qx-d3X" secondAttribute="trailing" id="3TM-q2-GDG"/>
+                                        <constraint firstItem="Gde-qx-d3X" firstAttribute="centerY" secondItem="ClS-Nj-yAx" secondAttribute="centerY" id="5NJ-Y9-YJt"/>
+                                        <constraint firstItem="Gde-qx-d3X" firstAttribute="leading" secondItem="qRw-hX-bem" secondAttribute="trailing" constant="8" id="GRI-AP-uvF"/>
+                                        <constraint firstItem="qRw-hX-bem" firstAttribute="centerY" secondItem="ClS-Nj-yAx" secondAttribute="centerY" id="wgr-VJ-QMf"/>
+                                        <constraint firstItem="qRw-hX-bem" firstAttribute="leading" secondItem="ClS-Nj-yAx" secondAttribute="leading" constant="8" id="yoQ-iS-tne"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompleteButton" destination="qRw-hX-bem" id="Ieh-LO-Cwu"/>
+                                    <outlet property="titleLabel" destination="Gde-qx-d3X" id="tRl-6f-jZI"/>
                                     <segue destination="gpC-PB-XRf" kind="presentation" id="z3m-FN-IQ8"/>
                                 </connections>
                             </tableViewCell>
@@ -244,7 +274,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zVV-1h-YZh"/>
+        <segue reference="z3m-FN-IQ8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>

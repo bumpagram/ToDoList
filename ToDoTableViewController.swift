@@ -64,12 +64,11 @@ class ToDoTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        // отображение кастомной ячейки
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! ToDoCustomCell
         let element = arrayOfToDos[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = element.title
-        content.secondaryText = element.notes
-        cell.contentConfiguration = content
+        cell.titleLabel.text = element.title
+        cell.isCompleteButton.isSelected = element.isComplete
         
         return cell
     }
