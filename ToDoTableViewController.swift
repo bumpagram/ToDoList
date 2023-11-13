@@ -13,6 +13,7 @@ class ToDoTableViewController: UITableViewController, ToDoCustomCellDelegate {
             element.isComplete.toggle()
             arrayOfToDos[indexpath.row] = element
             tableView.reloadRows(at: [indexpath], with: .automatic)
+            ToDoModel.saveData(of: arrayOfToDos)
         }
     }
     
@@ -51,6 +52,7 @@ class ToDoTableViewController: UITableViewController, ToDoCustomCellDelegate {
                 tableView.insertRows(at: [insertIndexPath], with: .automatic)
             }
         }
+        ToDoModel.saveData(of: arrayOfToDos)
     }
     
     @IBSegueAction func editTodo(_ coder: NSCoder, sender: Any?) -> DetailsTableViewController? {
@@ -104,6 +106,7 @@ class ToDoTableViewController: UITableViewController, ToDoCustomCellDelegate {
         if editingStyle == .delete {
             arrayOfToDos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            ToDoModel.saveData(of: arrayOfToDos)
         }
     }
     
